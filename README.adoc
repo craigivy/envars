@@ -1,0 +1,38 @@
+== envars
+This application demonstrates how openshift config maps can be used in a java application.
+The config map becomes environment variables in the deployment. 
+These variables are accessed using java's system properties and display in a JSP page
+
+=== Create the EAP app using S2I
+Creates a simple java application (JSP) to display all the system properites and name it envars.
+After the application is built and the pod is started a UI link will be exposed.
+----
+oc new-app eap70-basic-s2i \
+  --param APPLICATION_NAME=envars \
+  --param SOURCE_REPOSITORY_URL=https://github.com/craigivy/envars.git \
+  --param SOURCE_REPOSITORY_REF= \
+  --param CONTEXT_DIR=
+----
+
+=== Directly setting environment variables in the deployment
+This will cause the application to rebuild pushing the variables into the deployment container instance
+----
+oc set env dc/envars MY_DRINK=zima
+----
+
+=== Create the config map
+Creates a config map within the project with all the variables in the project
+----
+oc create -f ./configmap.yaml
+----
+
+=== Link the config map to the environment variables in the deployment
+Add all the variables in the config map to the envars application
+This will cause the application to rebuild pushing the variables into the deployment container instance
+----
+oc set env --from=configmap/envars-config dc/envars
+----
+Adds all the variables and prefixes them with `MY_`
+----
+oc set env --from=configmap/envars-config --prefix=MY_ dc/envars
+----
