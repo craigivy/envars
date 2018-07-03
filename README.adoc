@@ -21,7 +21,8 @@ oc set env dc/envars MY_DRINK=zima
 ----
 
 === Create the config map
-Creates a config map within the project with all the variables in the project
+Creates a config map within the project with all the variables in the project.
+The map contains to variables HAT=red, JEANS=green
 ----
 oc create -f ./configmap.yaml
 ----
@@ -36,3 +37,6 @@ Adds all the variables and prefixes them with `MY_`
 ----
 oc set env --from=configmap/envars-config --prefix=MY_ dc/envars
 ----
+
+=== View envars UI
+You should now see the variables set in the steps above.
