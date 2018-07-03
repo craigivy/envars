@@ -8,8 +8,6 @@
 <%
 Map<String, String> env = System.getenv();
 for (String envName : env.keySet()) {
-    String pname = envName;
-    String pvalue = ;
 %>
 <tr>
 <td><%= envName %></td>
