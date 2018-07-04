@@ -39,7 +39,7 @@ oc set env --from=configmap/envars-config --prefix=MY_ dc/envars
 ----
 
 === View envars UI
-You should now see the variables set in the steps above in envars UI
+You should now see the variables set in the steps above in envars UI (Click on the link with the openshift application)
 
 Within the pods terminal you will also see your variables
 ----
