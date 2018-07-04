@@ -39,4 +39,11 @@ oc set env --from=configmap/envars-config --prefix=MY_ dc/envars
 ----
 
 === View envars UI
-You should now see the variables set in the steps above.
+You should now see the variables set in the steps above in envars UI
+
+Within the pods terminal you will also see your variables
+----
+$ set | grep MY_
+MY_HAT=red
+MY_JEANS=green
+----
