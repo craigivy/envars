@@ -1,6 +1,15 @@
 <%@ page language="java" %>
 <%@ page import="java.util.Map" %>
 <html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+                
+    table, td, th {
+        border: 1px solid black;
+    }
+</style>    
 <body>
 <table>
 <tr><td><b>Property Names</b></td>
